@@ -16,33 +16,53 @@
 ### Association
 
 - has_many :items
-- has_many :purchase
+- has_many :purchases
+- has_one :information
 
--- ## itemsテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| name     | string     | null: false                    |
-| price    | string     | null: false                    |
-| category | references | null: false, foreign_key: true |
-| user     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- has_many :purchase
-
-## purchaseテーブル
+## itemsテーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
+| image         | string     | null: false                    |
+| product_name  | string     | null: false                    |
+| explanation   | text       | null: false                    |
+| category_id   | integer    | null: false                    |
+| condition_id  | integer    | null: false                    |
+| price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
-| shipping      | references | null: false, foreign_key: true |
-| shipping_cost | string     | null: false                    |
+| shipping_cost | integer    | null: false                    |
+| shipping_area | string     | null: false                    |
 | shipping_days | date       | null: false                    |
 
 ### Association
 
 - belongs_to :user
+- has_many :purchases
+
+## purchasesテーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :user
 - belongs_to :item
+
+## information
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| card_id       | references | null: false, unique: true      |
+| post_code     | integer    | null: false                    |
+| prefecture    | string     | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     | null: false                    |
+| phone_number  | integer    | null: false, unique: true      |
+
+### Association
+
+- belongs_to :user
