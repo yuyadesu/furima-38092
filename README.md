@@ -50,16 +50,16 @@
 - belongs_to :item
 - has_one :information
 
-## information
+## addresses
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| card_id       | references | null: false, unique: true      |
-| post_code     | integer    | null: false                    |
-| prefecture    | integer    | null: false                    |
-| city          | string     | null: false                    |
+| post_code     | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     |                                |
 | address       | string     | null: false                    |
 | building_name | string     | null: false                    |
-| phone_number  | integer    | null: false, unique: true      |
+| phone_number  | string     | null: false                    |
+| purchase      | references | null: false, foreign_key: true |
 
 ### Association
 
