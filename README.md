@@ -48,7 +48,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :information
+- has_one :address
 
 ## addresses
 | Column        | Type       | Options                        |
