@@ -28,9 +28,9 @@
 | condition_id  | integer    | null: false                    |
 | price         | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
-| cost_id       | integer    | null: false                    |
+| send_cost_id  | integer    | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| day_id        | integer    | null: false                    |
+| send_day_id   | integer    | null: false                    |
 
 ### Association
 
@@ -55,9 +55,9 @@
 | ------------- | ---------- | ------------------------------ |
 | post_code     | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| city          | string     |                                |
+| city          | string     | null: false                    |
 | address       | string     | null: false                    |
-| building_name | string     | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 | purchase      | references | null: false, foreign_key: true |
 
