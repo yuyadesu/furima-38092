@@ -18,6 +18,6 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: NAME_KANA_REGEX, message: 'に全角カナ文字を使用してください' } 
   end
   validates :date_of_birth, presence: true
-  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]\z/i, message: 'は6文字以上の英数字が使えます' }
+  # validates_format_of :password, with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]\z/i, message: 'は6文字以上の英数字が使えます'
 
 end
