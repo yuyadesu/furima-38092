@@ -9,15 +9,16 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   NAME_REGEX = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
   with_options presence: true do
-    validates :last_name, format: { with: NAME_REGEX, message: 'に全角文字を使用してください' }
-    validates :first_name, format: { with: NAME_REGEX, message: 'に全角文字を使用してください' }
+    validates :last_name, format: { with: NAME_REGEX }
+    validates :first_name, format: { with: NAME_REGEX }
   end
   NAME_KANA_REGEX = /\A[ァ-ンー]+\z/
   with_options presence: true do
-    validates :last_name_kana, format: { with: NAME_KANA_REGEX, message: 'に全角カナ文字を使用してください' } 
-    validates :first_name_kana, format: { with: NAME_KANA_REGEX, message: 'に全角カナ文字を使用してください' } 
+    validates :last_name_kana, format: { with: NAME_KANA_REGEX } 
+    validates :first_name_kana, format: { with: NAME_KANA_REGEX } 
   end
   validates :date_of_birth, presence: true
-  # validates_format_of :password, with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]\z/i, message: 'は6文字以上の英数字が使えます'
+  # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
+  # validates :password, format: { with: ASSWORD_REGEX }
 
 end
