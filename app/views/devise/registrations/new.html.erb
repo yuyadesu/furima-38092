@@ -10,8 +10,9 @@
     </h1>
   </div>
 
-  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-  <%= render partial: 'shared/error_messages', collection: @user_to_a, model: f.object %>
+  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%><%# 今回はpartial:の記述でもできるよとこの記述をした。本来はpartialもlocalsもいらない %>
+  <%= render partial: 'shared/error_messages', locals: {model: f.object} %>
+
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <div class="form-group">
