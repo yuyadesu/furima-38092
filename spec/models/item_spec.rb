@@ -100,6 +100,11 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
+      it 'priceが全角数字では登録できない' do
+        @item.price = '９９９'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
     end
   end
 end
