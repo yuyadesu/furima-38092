@@ -17,4 +17,5 @@ class Item < ApplicationRecord
   validates :send_cost_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
   validates :send_day_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
+  validates :image, presence: true
 end
