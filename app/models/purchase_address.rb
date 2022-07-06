@@ -2,12 +2,6 @@ class PurchaseAddress
   include ActiveModel::Model
   attr_accessor :post_code, :prefecture_id, :city, :address, :building_name, :phone_number, :item_id, :user_id
 
-  # CARD_NUMBER_REGEX = /\A\d{14,16}\z/
-  # YAER_REGEX = /\A\d{2}\z/                                                                                                                                                                              
-  # MONTH_REGEX = /\A\d{2}\z/                                                                                                                                                                             
-  # CVV_REGEX = /\A\d{3,4}\z/ 
-  # with_options presence: true do
-  # end
   with_options presence: true do
     validates :item_id
     validates :user_id
