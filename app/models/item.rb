@@ -10,13 +10,17 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :send_day
 
-  validates :product_name, presence: true
-  validates :explanation, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :condition_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}, format: { with: /\A[0-9]+\z/ } 
-  validates :send_cost_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :send_day_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :image, presence: true
+  with_options presence: true do
+    validates :product_name
+    validates :explanation
+    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}, format: {with: /\A[0-9]+\z/} 
+    validates :image
+  end
+  with_options presence: true, numericality: {other_than: 1, message: "can't be blank"} do
+    validates :category_id
+    validates :condition_id
+    validates :send_cost_id
+    validates :prefecture_id
+    validates :send_day_id
+  end
 end
