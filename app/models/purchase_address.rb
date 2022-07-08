@@ -10,7 +10,7 @@ class PurchaseAddress
     validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
     validates :city
     validates :address
-    validates :phone_number, format: {with: /\A0\d{10,11}$\z/}
+    validates :phone_number, format: {with: /\A0\d{9,10}$\z/}
     validates :token
   end
 
